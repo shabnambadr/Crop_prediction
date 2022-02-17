@@ -1,6 +1,5 @@
 import streamlit as st
 import joblib
-model=joblib.load('IRIS')
 st.title('IRIS CLASSIFIER')
 st.subheader('Sepal Length')
 ip1=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1)
