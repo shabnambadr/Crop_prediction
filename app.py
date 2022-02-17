@@ -9,6 +9,7 @@ st.subheader('Petal Length')
 ip3=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=3)
 st.subheader('Petal Length')
 ip4=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=4)
-op=model.predict([ip1,ip2,ip3,ip4])
-if st.button('Predict'):
-  st.title(op[0])
+#op=model.predict([ip1,ip2,ip3,ip4])
+#if st.button('Predict'):
+ # st.title(op[0])
+print(ip1,ip2,ip4)
