@@ -19,6 +19,6 @@ df['Target']=iris.target
 from sklearn.neighbors import KNeighborsClassifier
 model=KNeighborsClassifier()
 model.fit(x,y)
-op=model.predict([ip1,ip2,ip3,ip4])
+op=model.predict([[ip1,ip2,ip3,ip4]])
 if st.button('Predict'):
   st.title(op[0])
