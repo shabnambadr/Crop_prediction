@@ -20,5 +20,11 @@ from sklearn.neighbors import KNeighborsClassifier
 model=KNeighborsClassifier()
 model.fit(x,y)
 op=model.predict([[ip1,ip2,ip3,ip4]])
+if op[0]==0:
+  out="Iris setosa"
+elif op[0]==1:
+  out="Iris versicolor"
+elif op[0]==2:
+  out="Iris virginica"
 if st.button('Predict'):
-  st.title(op[0])
+  st.title(out)
