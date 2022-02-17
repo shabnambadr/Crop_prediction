@@ -12,6 +12,3 @@ ip4=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, st
 op=model.predict([ip1,ip2,ip3,ip4])
 if st.button('Predict'):
   st.title(op[0])
-
-  
-   
