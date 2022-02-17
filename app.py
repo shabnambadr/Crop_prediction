@@ -19,7 +19,6 @@ df['Target']=iris.target
 from sklearn.neighbors import KNeighborsClassifier
 model=KNeighborsClassifier()
 model.fit(x,y)
-joblib.dump(model,'IRIS classifier')
 op=model.predict([[ip1,ip2,ip3,ip4]])
 if op[0]==0:
   out="Iris setosa"
