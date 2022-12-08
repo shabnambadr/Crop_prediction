@@ -12,6 +12,7 @@ ip3=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, st
 st.subheader('Petal Width')
 ip4=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=4)
 iris=datasets.load_iris()
+st.dataframe(iris)
 x=iris.data
 y=iris.target
 df=pd.DataFrame(iris.data)
