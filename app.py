@@ -9,7 +9,7 @@ st.subheader('Sepal Width')
 ip2=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=2)
 st.subheader('Petal Length')
 ip3=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=3)
-st.subheader('Petal Length')
+st.subheader('Petal Width')
 ip4=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=4)
 iris=datasets.load_iris()
 x=iris.data
