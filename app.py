@@ -1,30 +1,43 @@
-import streamlit as st
-import joblib
-import pandas as pd
-from sklearn import datasets
-st.title('IRIS CLASSIFIER')
-st.subheader('Sepal Length')
-ip1=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=1)
-st.subheader('Sepal Width')
-ip2=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=2)
-st.subheader('Petal Length')
-ip3=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=3)
-st.subheader('Petal Width')
-ip4=st.slider('Enter a value between 0 & 10:', min_value=0.0, max_value=10.0, step=0.1, key=4)
-iris=datasets.load_iris()
-x=iris.data
-y=iris.target
-df=pd.DataFrame(iris.data)
-df['Target']=iris.target
-from sklearn.neighbors import KNeighborsClassifier
-model=KNeighborsClassifier()
-model.fit(x,y)
-op=model.predict([[ip1,ip2,ip3,ip4]])
-if op[0]==0:
-  out="Iris setosa"
-elif op[0]==1:
-  out="Iris versicolor"
-elif op[0]==2:
-  out="Iris virginica"
-if st.button('Predict'):
-  st.title(out)
+from keras.models import load_model
+from PIL import Image, ImageOps #Install pillow instead of PIL
+import numpy as np
+
+# Disable scientific notation for clarity
+np.set_printoptions(suppress=True)
+
+# Load the model
+model = load_model('keras_model.h5', compile=False)
+
+# Load the labels
+class_names = open('labels.txt', 'r').readlines()
+
+# Create the array of the right shape to feed into the keras model
+# The 'length' or number of images you can put into the array is
+# determined by the first position in the shape tuple, in this case 1.
+data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+
+# Replace this with the path to your image
+image = Image.open(st.file_uploader("Upload the test image:")).convert('RGB')
+
+#resize the image to a 224x224 with the same strategy as in TM2:
+#resizing the image to be at least 224x224 and then cropping from the center
+size = (224, 224)
+image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
+
+#turn the image into a numpy array
+image_array = np.asarray(image)
+
+# Normalize the image
+normalized_image_array = (image_array.astype(np.float32) / 127.0) - 1
+
+# Load the image into the array
+data[0] = normalized_image_array
+
+# run the inference
+prediction = model.predict(data)
+index = np.argmax(prediction)
+class_name = class_names[index]
+confidence_score = prediction[0][index]
+
+st.write('Class:', class_name, end='')
+st.write('Confidence score:', confidence_score)
