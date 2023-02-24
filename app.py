@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import pickle
-
+import streamlit as st
 # Load trained model from file
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
