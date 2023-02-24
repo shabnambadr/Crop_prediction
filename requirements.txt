@@ -1,10 +1,2 @@
-joblib==1.2.0
-scikit_learn==1.2.0
 streamlit==1.19.0
-pandas==1.5.2
-numpy==1.24.1
-matplotlib==3.5.3
-PIL==9.4.0
-keras==2.11.0
-flask==2.2.3
-pickle==4.0.3
+
