@@ -1,8 +1,10 @@
+
+import streamlit as st
+item_id = st.text_input("Enter item id: ")
 import pandas as pd
 import joblib
 from flask import Flask, render_template, request
 import pickle
-import streamlit as st
 # Load data from CSV file
 data = pd.read_csv('sales_data.csv')
 
