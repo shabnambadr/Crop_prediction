@@ -1,6 +1,8 @@
 import pandas as pd
 import joblib
-
+from flask import Flask, render_template, request
+import pickle
+import streamlit as st
 # Load data from CSV file
 data = pd.read_csv('sales_data.csv')
 
@@ -39,9 +41,7 @@ y_new = model.predict(X_new)
 
 print('Predicted sales: ', y_new)
 joblib.dump(model, 'model.pkl')
-from flask import Flask, render_template, request
-import pickle
-import streamlit as st
+
 # Load trained model from file
 with open('model.pkl', 'rb') as f:
     model = pickle.load(f)
