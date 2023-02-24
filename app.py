@@ -27,10 +27,11 @@ y_pred = model.predict(X_test)
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-print('Mean squared error: ', mse)
-print('R-squared: ', r2)
+st.write('Mean squared error: ', mse)
+st.write('R-squared: ', r2)
 # Predict sales for new data
-item_id = int(input("Enter item id: "))
+#item_id = int(input("Enter item id: "))
+item_id = st.text_input("Enter item id: ")
 day = int(input("Enter day (1-7): "))
 
 X_new = [[day, item_id]]
