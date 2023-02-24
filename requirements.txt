@@ -7,3 +7,4 @@ matplotlib==3.5.3
 PIL==9.4.0
 keras==2.11.0
 flask==2.2.3
+pickle==4.0.3
