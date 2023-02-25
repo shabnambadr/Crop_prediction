@@ -29,7 +29,7 @@ print('R^2 score:', r2)
 
 # Get input from user
 item_name = st.text_input("Enter item name: ")
-day = st.text_input('Enter day : '))
+day = st.text_input('Enter day : ')
 
 # Create new input
 X_new = pd.DataFrame({'item_name': [item_name], 'day': [day]})
