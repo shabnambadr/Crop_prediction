@@ -44,8 +44,8 @@ X_new = X_new[X.columns]
 
 # Predict the sales for the new input
 y_new = model.predict(X_new)
-
-print('Predicted sales: ', y_new[0])
+if st.button('Predict'):
+    st.write('Predicted sales: ', y_new[0])
 
 
 
