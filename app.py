@@ -29,8 +29,10 @@ print('R^2 score:', r2)
 # Get input from user
 item_name =st.selectbox(
     'select item name',
-    ('vada', 'samosa', 'cream bun','pazhampori','bajji'))
-day = st.text_input('Enter day : ')
+    ('vada', 'samoosa', 'cream bun','pazhampori','bajji'))
+day = st.selectbox(
+    'select item name',
+    ('Monday', 'Tuesday', 'Wednesday','Thursday','Friday'))
 
 # Create new input
 X_new = pd.DataFrame({'item_name': [item_name], 'day': [day]})
