@@ -27,7 +27,9 @@ print('Mean squared error: ', mse)
 print('R^2 score:', r2)
 
 # Get input from user
-item_name = st.text_input("Enter item name: ")
+item_name =st.selectbox(
+    'select item name',
+    ('vada', 'samosa', 'cream bun','pazhampori','bajji'))
 day = st.text_input('Enter day : ')
 
 # Create new input
