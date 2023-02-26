@@ -5,7 +5,7 @@ from sklearn.preprocessing import OneHotEncoder
 import pickle                                                                                              
                                                                                                            
 # Load dataset from CSV file                                                                               
-data = pd.read_csv("data/Crop_recommendation.csv")                                                         
+data = pd.read_csv("Crop_recommendation.csv")                                                         
                                                                                                            
 # One-hot encoding the crop names                                                                          
 enc = OneHotEncoder(sparse=False)                                                                          
