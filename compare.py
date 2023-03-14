@@ -22,6 +22,9 @@ n_content = st.sidebar.slider('N Content', 0, 200, 100)
 p_content = st.sidebar.slider('P Content', 0, 200, 100)
 k_content = st.sidebar.slider('K Content', 0, 200, 100)
 
+# Define true target values
+y_true = data['label'].values
+
 # Make predictions
 rf_prediction = rf_model.predict([[rainfall, ph, temperature, n_content, p_content, k_content]])
 lr_prediction = lr_model.predict([[rainfall, ph, temperature, n_content, p_content, k_content]])
