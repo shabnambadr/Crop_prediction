@@ -12,7 +12,7 @@ data = pd.read_csv('Crop_recommendation.csv')
 # Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(
     data[['ph', 'humidity', 'rainfall', 'temperature', 'N', 'P', 'K']],
-    data['crop'],
+    data['yield'],
     test_size=0.3,
     random_state=42
 )
