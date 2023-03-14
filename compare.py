@@ -7,7 +7,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 
 # Load data
-data = pd.read_csv('data.csv')
+data = pd.read_csv('Crop_recommendation.csv')
 
 # Load trained models
 rf_model = RandomForestRegressor()
