@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
-from sklearn.externals import joblib
+from sklearn import joblib
 
 # Load data
 data = pd.read_csv('Crop_recommendation.csv')
