@@ -7,7 +7,7 @@ from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 
 # Load data
-data = pd.read_csv('crop_yield_data.csv')
+data = pd.read_csv('Crop_recommendation.csv')
 
 # Split data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(
