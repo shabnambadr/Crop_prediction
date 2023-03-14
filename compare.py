@@ -5,15 +5,16 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
+import joblib
 
 # Load data
 data = pd.read_csv('Crop_recommendation.csv')
 
 # Load trained models
 rf_model = RandomForestRegressor()
-rf_model = rf_model.load('rf_model.pkl')
+rf_model = joblib.load('rf_model.pkl')
 lr_model = LinearRegression()
-lr_model = lr_model.load('lr_model.pkl')
+lr_model = joblib.load('lr_model.pkl')
 
 # Get user input
 rainfall = st.sidebar.slider('Rainfall', 0, 500, 100)
