@@ -5,17 +5,17 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
-import pickle
+import joblib
 
 # Load data
 data = pd.read_csv('Crop_recommendation.csv')
 
 # Load trained models
-with open('rf_model.pkl', 'rb') as f:
-    rf_model = pickle.load(f)
+with open('rf_model.py', 'rb') as f:
+    rf_model = joblib.load(f)
 
-with open('lr_model.pkl', 'rb') as f:
-    lr_model = pickle.load(f)
+with open('lr_model.py', 'rb') as f:
+    lr_model = joblib.load(f)
 
 # Get user input
 rainfall = st.sidebar.slider('Rainfall', 0, 500, 100)
