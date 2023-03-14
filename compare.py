@@ -5,14 +5,15 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
-from sklearn import joblib
 
 # Load data
-data = pd.read_csv('Crop_recommendation.csv')
+data = pd.read_csv('data.csv')
 
 # Load trained models
-rf_model = joblib.load('rf_model.py')
-lr_model = joblib.load('lr_model.py')
+rf_model = RandomForestRegressor()
+rf_model = rf_model.load('rf_model.pkl')
+lr_model = LinearRegression()
+lr_model = lr_model.load('lr_model.pkl')
 
 # Get user input
 rainfall = st.sidebar.slider('Rainfall', 0, 500, 100)
@@ -21,9 +22,6 @@ temperature = st.sidebar.slider('Temperature', 0, 50, 25)
 n_content = st.sidebar.slider('N Content', 0, 200, 100)
 p_content = st.sidebar.slider('P Content', 0, 200, 100)
 k_content = st.sidebar.slider('K Content', 0, 200, 100)
-
-# Define true target values
-y_true = data['label'].values
 
 # Make predictions
 rf_prediction = rf_model.predict([[rainfall, ph, temperature, n_content, p_content, k_content]])
