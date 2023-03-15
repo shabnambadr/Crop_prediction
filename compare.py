@@ -7,7 +7,7 @@ from rf_model import RandomForestRegressor
 
 # Load your dataset or input data
 data = pd.read_csv('Crop_recommendation.csv')
-X_train, X_test, y_train, y_test = train_test_split(data.drop('yield', axis=1), data['yield'], test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(data.drop('yield'), data['yield'], test_size=0.3, random_state=42)
 
 # Create instances of the models and fit them with your dataset
 lr_model = LinearRegression()
