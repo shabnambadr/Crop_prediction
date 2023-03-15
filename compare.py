@@ -16,6 +16,9 @@ rf_model = joblib.load('rf_model.pkl')
 lr_model = LinearRegression()
 lr_model = joblib.load('lr_model.pkl')
 
+# Define y_true variable
+y_true = data['yield']
+
 # Get user input
 humidity = st.sidebar.slider('Humidity', 0.0, 100.0, 50.0, 1.0)
 temperature = st.sidebar.slider('Temperature', 0.0, 50.0, 25.0, 1.0)
@@ -42,4 +45,5 @@ ax.set_title('Accuracy Comparison')
 ax.set_xlabel('Model')
 ax.set_ylabel('Accuracy')
 st.pyplot(fig)
+
 
