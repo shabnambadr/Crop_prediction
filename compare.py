@@ -2,8 +2,8 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from linear_regression_model import LinearRegression
-from random_forest_model import RandomForestRegressor
+from lr_model import LinearRegression
+from rf_model import RandomForestRegressor
 
 # Load your dataset or input data
 data = pd.read_csv('Crop_recommendation.csv')
