@@ -1,42 +1,43 @@
+import streamlit as st
+import numpy as np
 import pandas as pd
-import joblib
 import matplotlib.pyplot as plt
-from sklearn.metrics import r2_score
+from linear_regression_model import LinearRegression
+from random_forest_model import RandomForestRegressor
 
-# Load data
+# Load your dataset or input data
 data = pd.read_csv('Crop_recommendation.csv')
+X_train, X_test, y_train, y_test = train_test_split(data.drop('yield', axis=1), data['yield'], test_size=0.3, random_state=42)
 
-# Load trained models
-rf_model = joblib.load('rf_model.pkl')
-lr_model = joblib.load('lr_model.pkl')
+# Create instances of the models and fit them with your dataset
+lr_model = LinearRegression()
+rf_model = RandomForestRegressor()
+lr_model.fit(X_train, y_train)
+rf_model.fit(X_train, y_train)
 
-# Get user input
-humidity = 50.0
-temperature = 25.0
-rainfall = 100.0
-ph = 7.0
-N = 50.0
-P = 25.0
-K = 75.0
+# Predict using the models
+lr_preds = lr_model.predict(X_test)
+rf_preds = rf_model.predict(X_test)
 
-# Make predictions
-rf_prediction = rf_model.predict([[humidity, temperature, rainfall, ph, N, P, K]])
-lr_prediction = lr_model.predict([[humidity, temperature, rainfall, ph, N, P, K]])
+# Compute the accuracy of each model
+lr_acc = np.mean((lr_preds - y_test)**2)
+rf_acc = np.mean((rf_preds - y_test)**2)
 
-# Calculate accuracy
-y_true = data['label']
-rf_accuracy = r2_score(y_true, rf_prediction)
-lr_accuracy = r2_score(y_true, lr_prediction)
-
-# Plot bar chart
+# Plot the predicted values vs. the actual values
 fig, ax = plt.subplots()
-model_names = ['Random Forest', 'Linear Regression']
-accuracy_values = [rf_accuracy, lr_accuracy]
-ax.bar(model_names, accuracy_values)
-ax.set_title('Accuracy Comparison')
-ax.set_xlabel('Model')
-ax.set_ylabel('Accuracy')
-plt.show()
+ax.scatter(y_test, lr_preds, color='red')
+ax.scatter(y_test, rf_preds, color='blue')
+ax.set_xlabel('Actual Values')
+ax.set_ylabel('Predicted Values')
+ax.legend(['Linear Regression', 'Random Forest'])
+
+# Display the plot in Streamlit
+st.pyplot(fig)
+
+# Display the accuracy of each model
+st.write("Linear Regression Accuracy:", lr_acc)
+st.write("Random Forest Accuracy:", rf_acc)
+
 
 
 
