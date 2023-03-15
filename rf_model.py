@@ -26,15 +26,16 @@ model.fit(X, y)
 with open('crop_yield_prediction_model.pkl', 'wb') as f:
     pickle.dump(model, f)
 
-# Add input widgets for new test data
+## Add input widgets for new test data
 st.sidebar.header('Input Parameters')
-humidity = st.sidebar.slider('Humidity', 0.0, 100.0, 50.0, 1.0, key= humidity_slider)
-temperature = st.sidebar.slider('Temperature', 0.0, 50.0, 25.0, 1.0, key= temperature_slider)
-rainfall = st.sidebar.slider('Rainfall', 0.0, 300.0, 100.0, 1.0, key= rainfall_slider)
-ph = st.sidebar.slider('pH', 3.0, 10.0, 7.0, 0.1, key= ph_slider)
-N = st.sidebar.slider('Nitrogen Content', 0, 250, 100, 1, key= N_slider)
-P = st.sidebar.slider('Phosphorous Content', 0, 250, 100, 1, key= P_slider)
-K = st.sidebar.slider('Potassium Content', 0, 250, 100, 1, key= K_slider)
+humidity = st.sidebar.slider('Humidity', 0.0, 100.0, 50.0, 1.0)
+temperature = st.sidebar.slider('Temperature', 0.0, 50.0, 25.0, 1.0)
+rainfall = st.sidebar.slider('Rainfall', 0.0, 300.0, 100.0, 1.0)
+ph = st.sidebar.slider('pH', 3.0, 10.0, 7.0, 0.1)
+N = st.sidebar.slider('Nitrogen Content', 0, 250, 100, 1)
+P = st.sidebar.slider('Phosphorous Content', 0, 250, 100, 1)
+K = st.sidebar.slider('Potassium Content', 0, 250, 100, 1)
+
 
 # Create a button to trigger prediction
 if st.sidebar.button('Predict Yield'):
