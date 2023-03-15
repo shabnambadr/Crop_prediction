@@ -32,6 +32,10 @@ K = st.sidebar.slider('Potassium', 0.0, 200.0, 75.0, 1.0)
 rf_prediction = rf_model.predict([[humidity, temperature, rainfall, ph, N, P, K]])
 lr_prediction = lr_model.predict([[humidity, temperature, rainfall, ph, N, P, K]])
 
+# Print predictions
+st.write('Random Forest prediction:', rf_prediction[0])
+st.write('Linear Regression prediction:', lr_prediction[0])
+
 # Calculate accuracy
 rf_accuracy = r2_score(y_true, rf_prediction)
 lr_accuracy = r2_score(y_true, lr_prediction)
