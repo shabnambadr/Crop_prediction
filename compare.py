@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 # Load the dataset
-data = pd.read_csv('Crop_recommendation.csv', dtype={'yield': np.float64})
+data = pd.read_csv('Crop_recommendation.csv')
 data['yield'] = pd.to_numeric(data['yield'], errors='coerce')
 
 # Drop any rows with NaN values
