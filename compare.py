@@ -8,7 +8,10 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 # Load the dataset
-data = pd.read_csv('Crop_recommendation.csv')
+data = pd.read_csv('Crop_recommendation.csv', dtype={'yield': np.float64})
+
+# Drop any rows with NaN values
+data.dropna(inplace=True)
 
 # Separate the input features and target variable
 X = data.drop('yield', axis=1)
@@ -59,6 +62,7 @@ ax.set_xlabel('Model')
 ax.set_ylabel('RMSE')
 ax.set_title('Accuracy Comparison')
 st.pyplot(fig)
+
 
 
 
